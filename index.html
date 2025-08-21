@@ -30,9 +30,9 @@
 //Name array
     const messageDiv = document.getElementById("message");
 //will display name associated with slot
-    let cont = true;
+    let cont === true;
 // Allows continuation on selecting names
-    while (cont = True) {
+    while (cont = true) {
       let slotNum = prompt("Enter a slot number (0–5):");
 //First prompt asking for a number from the user
       if (slotNum === null) {
@@ -42,7 +42,7 @@
 //If user hits cancel the loop will break
       let slot = Number(slotNum);
 //shortening slotNum and transforming it to a number rather than string from input
-      if (!Number(slot) || slot < 0 || slot >= names.length) {
+      if (!Number.isInteger(slot) || slot < 0 || slot >= names.length) {
         alert("Invalid slot number. Please try again.");
         continue;
       }
