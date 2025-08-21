@@ -13,47 +13,52 @@
         padding: 20px;
         text-align: center;
       }
-
+/* Determines the font style, text color, alignment, font style, ad overall background color */
       h1 {
         color: #333;
         margin-bottom:10px;
         text-shadow: 2px 2px 4px black;
       }
-
-
+/* Styling of heading over the table */
       table {
         margin: 20px auto;
         border-collapse: collapse;
         width: 300px;
-        color: black;
       }
-
+/*Determines dimensions of table*/
       th, td {
         border: 1px solid #aaa;
         padding: 10px;
+        color: white;
       }
-
+/* Determines borders and text color inside table */
       th {
         background-color: #444;
-        color: white;
+      }
+/* Colors the head background */
+      tr:nth-child(even) {
+        background-color: #3a4449;
       }
 
       tr:nth-child(even) {
-        background-color: #eee;
+        background-color: #2f393e;
       }
+/* The two styles above add zebra striping, coloring even vs. odd */
 
       #message {
         margin-top: 20px;
         font-size: 1.1em;
         font-weight: bold;
+        color: white;
       }
-
+/* This style defines the statement of who you chose */
       button {
         margin-top: 20px;
         padding: 10px 20px;
         font-size: 1em;
         cursor: pointer;
       }
+/*Button style*/
   </style>
 </head>
 <!-- Defines author, encoding, language, and display -->
