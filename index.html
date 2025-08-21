@@ -6,17 +6,65 @@
   <meta charset="UTF-8">
   <title>Contacts</title>
 </head>
+<!-- Defines author, encoding, language, and display -->
 <body>
-<table id="contacts">
-  <thead>
-    <tr><th>Slot #</th><th>Name</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>0</td><td>Arnold</td></tr>
-    <tr><td>1</td><td>Sly</td></tr>
-    <tr><td>2</td><td>Dwayne</td></tr>
-    <tr><td>3</td><td>Vin</td></tr>
-    <tr><td>4</td><td>JCVD</td></tr>
-    <tr><td>5</td><td>Steven</td></tr>
-  </tbody>
+  <table id="contacts">
+    <thead>
+      <tr><th>Slot #</th><th>Name</th></tr>
+    </thead>
+<!-- Creates a head for table-->
+    <tbody>
+      <tr><td>0</td><td>Arnold</td></tr>
+      <tr><td>1</td><td>Sly</td></tr>
+      <tr><td>2</td><td>Dwayne</td></tr>
+      <tr><td>3</td><td>Vin</td></tr>
+      <tr><td>4</td><td>JCVD</td></tr>
+      <tr><td>5</td><td>Steven</td></tr>
+    </tbody>
+  </table>
+<!-- Creates table with two columns and 6 rows excluding the head --> 
+  <button id="startBtn">Click here to chose a contact</button>
+<!-- Creates button -->
+  <div id="message"></div>
+<!-- will allow printing on webpage as opposed to alerts -->
+  <script>
+    const names = ["Arnold", "Sly", "Dwayne", "Vin", "JCVD", "Steven"];
+//Name array
+    const messageDiv = document.getElementById("message");
+//will display name associated with slot
+    const startBtn = document.getElementById("startBtn");
+//Will reference a button to allow the user to start the prompts. Using this to load JS elements after html and css
+    startBtn.addEventListener("click", () => {
+      let cont = true;
+// Allows continuation on selecting names
+      while (cont === true) {
+        let slotNum = prompt("Enter a slot number (0–5):");
+//First prompt asking for a number from the user
+        if (slotNum === null) {
+          alert("Cancelled. Goodbye!");
+          break;
+        }
+//If user hits cancel the loop will break
+        let slot = Number(slotNum);
+//shortening slotNum and transforming it to a number rather than string from input
+        if (!Number.isInteger(slot) || slot < 0 || slot >= names.length) {
+          alert("Invalid slot number. Please try again.");
+          continue;
+        }
+//Analyzes input number to make sure its on the table, if not will error and continue loop
+        const selectedName = names[slot];
+//sets the selectedName to pull from the array at the slot integer
+        alert(`You selected ${selectedName}.`);
+        messageDiv.textContent = `You selected: ${selectedName}`;
+//message about who was selected
+        let again = prompt("Search again? (yes/no)").toLowerCase();
+        if (again !== "yes") {
+          cont = false;
+          alert("Thanks for using Slot Name Finder!");
+        }
+      }
+    });
+//Asks about playing again
+  </script>
 </body>
+</html>
