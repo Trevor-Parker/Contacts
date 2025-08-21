@@ -23,7 +23,7 @@
     </tbody>
   </table>
 <!-- Creates table with two columns and 6 rows excluding the head --> 
-  <button id="startBtn">Start Search</button>
+  <button id="startBtn">Click here to chose a contact</button>
 <!-- Creates button -->
   <div id="message"></div>
 <!-- will allow printing on webpage as opposed to alerts -->
@@ -50,7 +50,7 @@
         if (!Number.isInteger(slot) || slot < 0 || slot >= names.length) {
           alert("Invalid slot number. Please try again.");
           continue;
-      }
+        }
 //Analyzes input number to make sure its on the table, if not will error and continue loop
         const selectedName = names[slot];
 //sets the selectedName to pull from the array at the slot integer
@@ -61,8 +61,9 @@
         if (again !== "yes") {
           cont = false;
           alert("Thanks for using Slot Name Finder!");
+        }
       }
-    }
+    });
 //Asks about playing again
   </script>
 </body>
