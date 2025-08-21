@@ -6,17 +6,59 @@
   <meta charset="UTF-8">
   <title>Contacts</title>
 </head>
+<!-- Defines author, encoding, language, and display -->
 <body>
-<table id="contacts">
-  <thead>
-    <tr><th>Slot #</th><th>Name</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>0</td><td>Arnold</td></tr>
-    <tr><td>1</td><td>Sly</td></tr>
-    <tr><td>2</td><td>Dwayne</td></tr>
-    <tr><td>3</td><td>Vin</td></tr>
-    <tr><td>4</td><td>JCVD</td></tr>
-    <tr><td>5</td><td>Steven</td></tr>
-  </tbody>
+  <table id="contacts">
+    <thead>
+      <tr><th>Slot #</th><th>Name</th></tr>
+    </thead>
+<!-- Creates a head for table-->
+    <tbody>
+      <tr><td>0</td><td>Arnold</td></tr>
+      <tr><td>1</td><td>Sly</td></tr>
+      <tr><td>2</td><td>Dwayne</td></tr>
+      <tr><td>3</td><td>Vin</td></tr>
+      <tr><td>4</td><td>JCVD</td></tr>
+      <tr><td>5</td><td>Steven</td></tr>
+    </tbody>
+  </table>
+<!-- Creates table with two columns and 6 rows excluding the head -->
+  
+  <div id="message"></div>
+<!-- will allow printing on webpage as opposed to alerts -->
+
+  <script>
+    const names = ["Arnold", "Sly", "Dwayne", "Vin", "JCVD", "Steven"];
+//Name array
+    const messageDiv = document.getElementById("message");
+//will display name associated with slot
+
+    let cont = true;
+
+    while (cont = True) {
+      let slotNum = prompt("Enter a slot number (0–5):");
+
+      if (slotNum === null) {
+        alert("Cancelled. Goodbye!");
+        break;
+      }
+      
+      let slot = Number(slotNum);
+
+      if (!Number.isInteger(slot) || slot < 0 || slot >= names.length) {
+        alert("Invalid slot number. Please try again.");
+        continue;
+      }
+
+      alert(`You selected ${names[slot]}.`);
+
+      let again = prompt("Search again? (yes/no)").toLowerCase();
+      if (again !== "yes") {
+        cont = false;
+        alert("Thanks for using Slot Name Finder!");
+      }
+    }
+  </script>
+
 </body>
+</html>
