@@ -22,43 +22,43 @@
       <tr><td>5</td><td>Steven</td></tr>
     </tbody>
   </table>
-<!-- Creates table with two columns and 6 rows excluding the head -->
-  
+<!-- Creates table with two columns and 6 rows excluding the head --> 
   <div id="message"></div>
 <!-- will allow printing on webpage as opposed to alerts -->
-
   <script>
     const names = ["Arnold", "Sly", "Dwayne", "Vin", "JCVD", "Steven"];
 //Name array
     const messageDiv = document.getElementById("message");
 //will display name associated with slot
-
     let cont = true;
-
+// Allows continuation on selecting names
     while (cont = True) {
       let slotNum = prompt("Enter a slot number (0–5):");
-
+//First prompt asking for a number from the user
       if (slotNum === null) {
         alert("Cancelled. Goodbye!");
         break;
       }
-      
+//If user hits cancel the loop will break
       let slot = Number(slotNum);
-
-      if (!Number.isInteger(slot) || slot < 0 || slot >= names.length) {
+//shortening slotNum and transforming it to a number rather than string from input
+      if (!Number(slot) || slot < 0 || slot >= names.length) {
         alert("Invalid slot number. Please try again.");
         continue;
       }
-
-      alert(`You selected ${names[slot]}.`);
-
+//Analyzes input number to make sure its on the table, if not will error and continue loop
+      const selectedName = names[slot];
+//sets the selectedName to pull from the array at the slot integer
+      alert(`You selected ${selectedName}.`);
+      messageDiv.textContent = `You selected: ${selectedName}`;
+//message about who was selected
       let again = prompt("Search again? (yes/no)").toLowerCase();
       if (again !== "yes") {
         cont = false;
         alert("Thanks for using Slot Name Finder!");
       }
     }
+//Asks about playing again
   </script>
-
 </body>
 </html>
